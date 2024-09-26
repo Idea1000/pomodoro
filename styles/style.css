@@ -127,35 +127,6 @@ html, body {
     }
 }
 
-/*tablette*/
-@media screen and (max-height: 400px) {
-    /*override du .position-timer*/
-    .position-timer {
-        top: 250px;
-        left: 42%;
-    }
-
-    #timer {
-        font-size: 40px;
-    }
-
-    #travail {
-        font-size: 18px;
-    }
-    
-    #pause {
-        font-size: 18px;
-    }
-
-    h1 {
-        font-size: 35px;
-    }
-
-    .bandeau {
-        height: 500px;
-    }
-}
-
 /*si l'écran deviens petit (final)*/
 @media screen and (max-width: 800px) and (-webkit-max-device-pixel-ratio: 1.5) {
     /*override du .position-timer*/
