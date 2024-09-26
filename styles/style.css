@@ -42,7 +42,7 @@ h1 {
 }
 
 /*telephone en mode portrait*/
-@media (max-aspect-ratio: 1/1) and (min-width: 1101px) {
+@media screen and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
     /*override du .position-timer*/
     .position-timer {
         top: 0px;
@@ -69,7 +69,7 @@ h1 {
 }
 
 /*si l'écran deviens plus petit (transition)*/
-@media (max-width: 1100px) and (max-aspect-ratio: 1/1) {
+@media (max-width: 1100px) {
     /*override du .position-timer*/
     .position-timer {
         top: 330px;
@@ -94,7 +94,7 @@ h1 {
 }
 
 /*si l'écran deviens petit (final)*/
-@media (max-width: 800px) and ((max-aspect-ratio: 1/1)) {
+@media (max-width: 800px) {
     /*override du .position-timer*/
     .position-timer {
         top: 230px;
