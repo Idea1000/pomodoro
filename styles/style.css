@@ -95,7 +95,7 @@ h1 {
 @media (orientation: portrait) and (min-width: 800px) {
     /*override du .position-timer*/
     .position-timer {
-        top: 300px;
+        top: 230px;
         left: 37%;
     }
 
