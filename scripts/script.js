@@ -110,3 +110,5 @@ let time; //definition de la variable stockant le temps restant
 changement(); //initialisation de l'état
 updateTimer(time, affichage); //mise à jour de l'affichage
 let reduce; //definition de l'intervale
+document.getElementById("resX").innerText = window.innerWidth;
+document.getElementById("resY").innerText = window.innerHeight; 
