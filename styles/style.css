@@ -41,6 +41,32 @@ h1 {
     font-size: 60px;
 }
 
+/*telephone en mode portrait*/
+@media (max-aspect-ratio: 1/1) {
+    /*override du .position-timer*/
+    .position-timer {
+        top: 250px;
+        left: 37%;
+    }
+
+    #timer {
+        font-size: 40px;
+        
+    }
+
+    #travail {
+        font-size: 15px;
+    }
+    
+    #pause {
+        font-size: 15px;
+        color: blue;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+}
 
 /*si l'écran deviens plus petit (transition)*/
 @media (max-width: 1100px) {
@@ -85,30 +111,6 @@ h1 {
     
     #pause {
         font-size: 18px;
-    }
-
-    h1 {
-        font-size: 35px;
-    }
-}
-/*telephone en mode portrait*/
-@media (orientation: portrait) and (min-width: 700px) {
-    /*override du .position-timer*/
-    .position-timer {
-        top: 250px;
-        left: 37%;
-    }
-
-    #timer {
-        font-size: 40px;
-    }
-
-    #travail {
-        font-size: 15px;
-    }
-    
-    #pause {
-        font-size: 15px;
     }
 
     h1 {
