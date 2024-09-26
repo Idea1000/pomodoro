@@ -1,24 +1,27 @@
-const TIMERTRAVAIL = 3; //1500
-const TIMERPAUSE = 2; //300
-const CYCLE = 2;
+const TIMERTRAVAIL = 1500; //1500
+const TIMERPAUSE = 300; //300
+const CYCLE = 4;
 
+/**
+ * change l'état du timer (Travail <-> Pause)
+ */
 function changement() {
     if (state % 2 == 1) {
-        //travail
+        //si travail
         time = TIMERTRAVAIL;
         usedTimer = TIMERTRAVAIL;
         document.getElementById("travail").style.color = "Yellow";
         document.getElementById("pause").style.color = "White";
         state++;
     } else if (state % 2 == 0 && state != (CYCLE * 2)) {
-        //pause
+        //si pause
         time = TIMERPAUSE;
         usedTimer = TIMERPAUSE;
         document.getElementById("travail").style.color = "White";
         document.getElementById("pause").style.color = "Yellow";
         state++;
     } else {
-        //grande pause
+        //si grande pause
         time = TIMERTRAVAIL;
         usedTimer = TIMERTRAVAIL;
         document.getElementById("travail").style.color = "White";
@@ -28,11 +31,10 @@ function changement() {
 }
 
 /**
- * enleve 1 au timer et supprime l'intervalle si il arrive à 0
+ * enleve 1 au timer et provoque le changement d'état si le timer arrive à 0
  */
 function reduceTime() {
     if (time <= 0) {
-        /*clearInterval(reduce);*/
         changement();
     } else {
         time -= 1;
@@ -59,7 +61,7 @@ function updateTimer(duree, display) {
  */
 function handleStartStop() {
     if (allume) {
-        //eteindre
+        //eteindre timer
         clearInterval(reduce);
         state = 1;
         changement();
@@ -69,11 +71,11 @@ function handleStartStop() {
         if ( icon.classList.contains('fa-rotate') ) {
             icon.classList.remove('fa-rotate');
             icon.classList.add('fa-play');
-         }
+        }
         allume = false;
-        bar.animate(1);
+        bar.animate(1); //reset la barre
     } else {
-        //lancer
+        //lancer timer
         reduce = setInterval(function() {
             reduceTime();
             updateTimer(time, affichage);
@@ -87,6 +89,7 @@ function handleStartStop() {
     }
 }
 
+/*créer le cercle de progression*/
 let bar = new ProgressBar.Circle("#progressionCircle", {
     strokeWidth: 1.5,
     easing: 'easeInOut',
@@ -98,12 +101,12 @@ let bar = new ProgressBar.Circle("#progressionCircle", {
   });
 bar.set(1);
 
-let state = 1; //important
-let usedTimer;
-let allume = false;
+let state = 1; //defini l'état du timer
+let usedTimer; //defini le temps utilisé pour le timer actuel (cercle de progression)
+let allume = false; //indique si le timer est allumé ou eteint
 document.getElementById("play").addEventListener("click", handleStartStop);
-let affichage = document.getElementById("timer");
-let time;
-changement();
-updateTimer(time, affichage);
-let reduce;
+let affichage = document.getElementById("timer"); //pour modifier le timer sur le site
+let time; //definition de la variable stockant le temps restant
+changement(); //initialisation de l'état
+updateTimer(time, affichage); //mise à jour de l'affichage
+let reduce; //definition de l'intervale
