@@ -92,10 +92,10 @@ h1 {
     }
 }
 /*telephone en mode portrait*/
-@media (orientation: portrait) and (min-width: 800px) {
+@media (orientation: portrait) and (min-width: 700px) {
     /*override du .position-timer*/
     .position-timer {
-        top: 230px;
+        top: 250px;
         left: 37%;
     }
 
@@ -104,11 +104,11 @@ h1 {
     }
 
     #travail {
-        font-size: 18px;
+        font-size: 15px;
     }
     
     #pause {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     h1 {
