@@ -17,16 +17,38 @@
 /*defini la position absolue du timer pour être dans le rond*/
 .position-timer {
     position: absolute;
-    top: 50%;
+    /*top: 40%;*/
+    top: 350px;
     left: 46%;
 }
 
-/*si l'écran deviens petit*/
+
+/*si l'écran deviens plus petit (transition)*/
+@media (max-width: 1100px) {
+    /*override du .position-timer*/
+    .position-timer {
+        top: 300px;
+        left: 43%;
+    }
+}
+
+/*si l'écran deviens petit (final)*/
 @media (max-width: 800px) {
     /*override du .position-timer*/
     .position-timer {
-        position: absolute;
-        top: 60%;
+        top: 270px;
         left: 40%;
     }
+}
+
+.bandeau {
+    height: 95vh;
+}
+
+html, body {
+    height: 100vh;
+}
+
+#ss {
+    padding: 0px;
 }

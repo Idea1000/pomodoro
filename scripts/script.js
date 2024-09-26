@@ -31,18 +31,27 @@ function updateTimer(duree, display) {
  */
 function handleStartStop() {
     if (allume) {
+        //eteindre
         clearInterval(reduce);
         time = TIMER;
         updateTimer(time, affichage);
-        document.getElementById("ss").innerText = "allumer";
+        if ( document.getElementById("ss").classList.contains('fa-rotate') ) {
+            document.getElementById("ss").classList.remove('fa-rotate');
+            document.getElementById("ss").classList.add('fa-play');
+         }
         allume = false;
         bar.animate(1);
     } else {
+        //lancer
         reduce = setInterval(function() {
             reduceTime();
             updateTimer(time, affichage);
         }, 1000);
-        document.getElementById("ss").innerText = "éteindre";
+        
+        if ( document.getElementById("ss").classList.contains('fa-play') ) {
+           document.getElementById("ss").classList.remove('fa-play');
+           document.getElementById("ss").classList.add('fa-rotate');
+        }
         allume = true;
     }
 }
@@ -59,7 +68,7 @@ let bar = new ProgressBar.Circle("#progressionCircle", {
 bar.set(1);
 
 let allume = false;
-document.getElementById("ss").addEventListener("click", handleStartStop);
+document.getElementById("play").addEventListener("click", handleStartStop);
 let affichage = document.getElementById("timer");
 let time = TIMER;
 updateTimer(time, affichage);
