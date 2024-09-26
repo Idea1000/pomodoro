@@ -40,6 +40,14 @@ h1 {
     font-size: 60px;
 }
 
+.bandeau {
+    height: 95vh;
+}
+
+html, body {
+    height: 100vh;
+}
+
 /*si l'écran deviens plus petit (transition)*/
 @media (max-width: 1100px) {
     /*override du .position-timer*/
@@ -65,7 +73,7 @@ h1 {
     }
 }
 
-/*si l'écran deviens petit (final)*/
+/*telephone*/
 @media screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 1.5) {
     /*override du .position-timer*/
     .position-timer {
@@ -90,7 +98,36 @@ h1 {
     }
 }
 
-/*telephone ?*/
+/*tablette*/
+@media screen and (max-height: 600px) {
+    /*override du .position-timer*/
+    .position-timer {
+        top: 250px;
+        left: 42%;
+    }
+
+    #timer {
+        font-size: 40px;
+    }
+
+    #travail {
+        font-size: 18px;
+    }
+    
+    #pause {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .bandeau {
+        height: 550px;
+    }
+}
+
+/*si l'écran deviens petit (final)*/
 @media screen and (max-width: 800px) and (-webkit-max-device-pixel-ratio: 1.5) {
     /*override du .position-timer*/
     .position-timer {
@@ -113,14 +150,6 @@ h1 {
     h1 {
         font-size: 35px;
     }
-}
-
-.bandeau {
-    height: 95vh;
-}
-
-html, body {
-    height: 100vh;
 }
 
 #ss {
