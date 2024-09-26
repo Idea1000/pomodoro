@@ -71,7 +71,7 @@ h1 {
 @media (max-width: 800px) {
     /*override du .position-timer*/
     .position-timer {
-        top: 220px;
+        top: 200px;
         left: 37%;
     }
 
@@ -80,11 +80,11 @@ h1 {
     }
 
     #travail {
-        font-size: 18px;
+        font-size: 17px;
     }
     
     #pause {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     h1 {
