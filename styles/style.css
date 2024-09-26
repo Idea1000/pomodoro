@@ -42,7 +42,7 @@ h1 {
 }
 
 /*telephone en mode portrait*/
-@media (max-height: 1920px) and (max-width: 1080px) {
+@media (orientation: portrait) and (min-width: 700px) and (-webkit-min-device-pixel-ratio: 2) {
     /*override du .position-timer*/
     .position-timer {
         top: 0px;
