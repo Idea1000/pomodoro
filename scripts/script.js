@@ -112,3 +112,4 @@ updateTimer(time, affichage); //mise à jour de l'affichage
 let reduce; //definition de l'intervale
 document.getElementById("resX").innerText = window.innerWidth;
 document.getElementById("resY").innerText = window.innerHeight; 
+document.getElementById("dpi").innerText = window.devicePixelRatio;
