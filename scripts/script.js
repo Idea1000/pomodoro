@@ -1,4 +1,4 @@
-const TIMER = 10;
+const TIMER = 60;
 
 function reduceTime() {
     if (time <= 0) {
@@ -9,9 +9,11 @@ function reduceTime() {
 }
 
 function updateTimer(time, display) {
-    let local_timer = time;
-    let minute = Math.round(local_timer/60);
-    let second = local_timer - minute*60;
+    let minute = Math.floor(time/60);
+    let second = (time - minute*60).toString();
+    if (second.length == 1) {
+        second = "0"+second;
+    }
     console.log("" + minute + second);
     display.innerText = minute + ":" + second;
 }
