@@ -17,7 +17,6 @@
 /*defini la position absolue du timer pour être dans le rond*/
 .position-timer {
     position: absolute;
-    /*top: 40%;*/
     top: 360px;
     left: 40%;
 }
@@ -39,33 +38,6 @@
 
 h1 {
     font-size: 60px;
-}
-
-/*telephone en mode portrait*/
-@media (orientation: portrait) and (min-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
-    /*override du .position-timer*/
-    .position-timer {
-        top: 0px;
-        left: 37%;
-    }
-
-    #timer {
-        font-size: 40px;
-        
-    }
-
-    #travail {
-        font-size: 15px;
-    }
-    
-    #pause {
-        font-size: 15px;
-        color: blue;
-    }
-
-    h1 {
-        font-size: 35px;
-    }
 }
 
 /*si l'écran deviens plus petit (transition)*/
@@ -98,6 +70,31 @@ h1 {
     /*override du .position-timer*/
     .position-timer {
         top: 230px;
+        left: 37%;
+    }
+
+    #timer {
+        font-size: 40px;
+    }
+
+    #travail {
+        font-size: 18px;
+    }
+    
+    #pause {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+}
+
+/*telephone ?*/
+@media (max-width: 449px) {
+    /*override du .position-timer*/
+    .position-timer {
+        top: 200px;
         left: 37%;
     }
 
