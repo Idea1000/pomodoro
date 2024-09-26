@@ -71,7 +71,7 @@ h1 {
 @media (max-width: 800px) {
     /*override du .position-timer*/
     .position-timer {
-        top: 200px;
+        top: 230px;
         left: 37%;
     }
 
@@ -80,11 +80,35 @@ h1 {
     }
 
     #travail {
-        font-size: 17px;
+        font-size: 18px;
     }
     
     #pause {
-        font-size: 17px;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+}
+/*telephone en mode portrait*/
+@media (orientation: portrait) and (min-width: 800px) {
+    /*override du .position-timer*/
+    .position-timer {
+        top: 300px;
+        left: 37%;
+    }
+
+    #timer {
+        font-size: 40px;
+    }
+
+    #travail {
+        font-size: 18px;
+    }
+    
+    #pause {
+        font-size: 18px;
     }
 
     h1 {
