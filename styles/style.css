@@ -1,24 +1,29 @@
+/*creer la grande ombre demande*/
 .ombre {
     box-shadow: 0px 0px 1em black;
 }
 
+/*creer un leger padding autour de cercle de progression*/
 .circle {
-    padding-top: 3%;
+    /*padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 3%;
-    padding-right: 3%;
+    padding-right: 3%;*/
+    padding: 3%;
 }
 
 /*#progressionCircle {}*/
 
+/*defini la position absolue du timer pour être dans le rond*/
 .position-timer {
     position: absolute;
     top: 50%;
     left: 46%;
 }
 
+/*si l'écran deviens petit*/
 @media (max-width: 800px) {
-    /*telephone ?*/
+    /*override du .position-timer*/
     .position-timer {
         position: absolute;
         top: 60%;
