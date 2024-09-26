@@ -50,7 +50,6 @@ html, body {
 
 /*si l'écran deviens plus petit (transition)*/
 @media (max-width: 1100px) {
-    /*override du .position-timer*/
     .position-timer {
         top: 330px;
         left: 40%;
@@ -75,7 +74,6 @@ html, body {
 
 /*telephone*/
 @media screen and (max-width: 800px) and (-webkit-min-device-pixel-ratio: 1.5) {
-    /*override du .position-timer*/
     .position-timer {
         top: 200px;
         left: 37%;
@@ -86,11 +84,11 @@ html, body {
     }
 
     #travail {
-        font-size: 18px;
+        font-size: 15px;
     }
     
     #pause {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     h1 {
@@ -100,7 +98,6 @@ html, body {
 
 /*tablette*/
 @media screen and (max-height: 600px) {
-    /*override du .position-timer*/
     .position-timer {
         top: 250px;
         left: 42%;
@@ -123,13 +120,12 @@ html, body {
     }
 
     .bandeau {
-        height: 550px;
+        height: 600px;
     }
 }
 
 /*si l'écran deviens petit (final)*/
 @media screen and (max-width: 800px) and (-webkit-max-device-pixel-ratio: 1.5) {
-    /*override du .position-timer*/
     .position-timer {
         top: 230px;
         left: 37%;
