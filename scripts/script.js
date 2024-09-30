@@ -1,5 +1,5 @@
-const DEFAULTTIMERTRAVAIL = 1500; //1500
-const DEFAULTTIMERPAUSE = 300; //300
+const DEFAULTTIMERTRAVAIL = 1500;
+const DEFAULTTIMERPAUSE = 300;
 const CYCLE = 4;
 
 if (localStorage.getItem('mb_pomodoro_travail') == null) {
@@ -9,17 +9,46 @@ if (localStorage.getItem('mb_pomodoro_pause') == null) {
     localStorage.setItem('mb_pomodoro_pause',  JSON.stringify(DEFAULTTIMERPAUSE));
 }
 
+localStorage.setItem('mb_pomodoro_travail',  JSON.stringify(DEFAULTTIMERTRAVAIL));
+localStorage.setItem('mb_pomodoro_pause',  JSON.stringify(DEFAULTTIMERPAUSE));
+
+function getTime(valeur) {
+    let hour = Math.floor(valeur/3600);
+    let minute = Math.floor(valeur/60) - hour;
+    let second = (valeur - minute*60 - hour*3600).toString();
+    if (second.length == 1) {
+        second = "0"+second;
+    }
+    if (minute.length == 1) {
+        minute = "0"+minute;
+    }
+    if (hour.length == 1) {
+        hour = "0"+hour;
+    }
+    return hour+":"+minute+":"+second;
+}
+
+function getSecond(time) {
+    let hour = parseInt(time.substring(1,2));
+    let minute = parseInt(time.substring(4,5));
+    let second = parseInt(time.substring(7,8));
+    return hour*3600 + minute*60 + second;
+}
+
+
 let TIMERTRAVAIL = JSON.parse(localStorage.getItem('mb_pomodoro_travail'));
 let TIMERPAUSE = JSON.parse(localStorage.getItem('mb_pomodoro_pause'));
 
-document.getElementById("temps_travail").innerText = JSON.parse(localStorage.getItem('mb_pomodoro_travail'));
-document.getElementById("temps_pause").innerText = JSON.parse(localStorage.getItem('mb_pomodoro_pause'));
+document.getElementById("temps_travail").value = getTime(JSON.parse(localStorage.getItem('mb_pomodoro_travail')));
+document.getElementById("temps_pause").value = getTime(JSON.parse(localStorage.getItem('mb_pomodoro_pause')));
 
 document.getElementById("changer").addEventListener("click", function() {
-    TIMERTRAVAIL = JSON.parse(localStorage.getItem('mb_pomodoro_travail'));
-    TIMERPAUSE = JSON.parse(localStorage.getItem('mb_pomodoro_pause'));
-    localStorage.setItem('mb_pomodoro_travail',  JSON.stringify(TIMERTRAVAIL));
-    localStorage.setItem('mb_pomodoro_pause',  JSON.stringify(TIMERPAUSE));
+    console.log(getSecond(JSON.stringify(document.getElementById("temps_pause").value)));
+    console.log(getSecond(JSON.stringify(document.getElementById("temps_travail").value)));
+    localStorage.setItem('mb_pomodoro_travail', getSecond(JSON.stringify(document.getElementById("temps_travail").value)));
+    localStorage.setItem('mb_pomodoro_pause', getSecond(JSON.stringify(document.getElementById("temps_pause").value)));
+    TIMERTRAVAIL = getSecond(document.getElementById("temps_travail").value.toString());
+    TIMERPAUSE = getSecond(document.getElementById("temps_pause").value.toString())
 }); 
 
 /**
