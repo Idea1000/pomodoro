@@ -97,26 +97,10 @@ html, body {
 }
 
 /*tablette*/
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 500px) {
     .position-timer {
         top: 250px;
         left: 42%;
-    }
-
-    #timer {
-        font-size: 40px;
-    }
-
-    #travail {
-        font-size: 18px;
-    }
-    
-    #pause {
-        font-size: 18px;
-    }
-
-    h1 {
-        font-size: 35px;
     }
 
     .bandeau {
