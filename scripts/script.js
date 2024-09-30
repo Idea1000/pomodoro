@@ -6,7 +6,6 @@ const DEFAULTTIMERPAUSE = 300;
  * change l'état du timer (Travail <-> Pause)
  */
 function changement() {
-    console.log("entre : " + state);
     if (state % 2 == 1) {
         //si travail
         time = TIMERTRAVAIL;
@@ -14,7 +13,6 @@ function changement() {
         document.getElementById("travail").style.color = "Yellow";
         document.getElementById("pause").style.color = "White";
         state++;
-        console.log("oui");
     } else if (state % 2 == 0 && state != (CYCLE * 2)) {
         //si pause
         time = TIMERPAUSE;
@@ -30,8 +28,6 @@ function changement() {
         document.getElementById("pause").style.color = "Yellow";
         state=1;
     }
-    console.log("sortie : " + state);
-    debugger;
 }
 
 /**
@@ -55,6 +51,9 @@ function updateTimer(duree, display) {
     let second = (duree - minute*60).toString();
     if (second.length == 1) {
         second = "0"+second;
+    }
+    if (minute.toString().length == 1) {
+        minute = "0"+minute;
     }
     display.innerText = minute + ":" + second;
     bar.animate((duree/usedTimer)*1.0);
