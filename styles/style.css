@@ -151,3 +151,11 @@ html, body {
 #ss {
     padding: 0px;
 }
+
+#temps_pause {
+    color:black;
+}
+
+#temps_travail {
+    color:black;
+}

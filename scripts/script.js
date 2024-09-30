@@ -1,6 +1,26 @@
-const TIMERTRAVAIL = 1500; //1500
-const TIMERPAUSE = 300; //300
+const DEFAULTTIMERTRAVAIL = 1500; //1500
+const DEFAULTTIMERPAUSE = 300; //300
 const CYCLE = 4;
+
+if (localStorage.getItem('mb_pomodoro_travail') == null) {
+    localStorage.setItem('mb_pomodoro_travail',  JSON.stringify(DEFAULTTIMERTRAVAIL));
+}
+if (localStorage.getItem('mb_pomodoro_pause') == null) {
+    localStorage.setItem('mb_pomodoro_pause',  JSON.stringify(DEFAULTTIMERPAUSE));
+}
+
+let TIMERTRAVAIL = JSON.parse(localStorage.getItem('mb_pomodoro_travail'));
+let TIMERPAUSE = JSON.parse(localStorage.getItem('mb_pomodoro_pause'));
+
+document.getElementById("temps_travail").innerText = JSON.parse(localStorage.getItem('mb_pomodoro_travail'));
+document.getElementById("temps_pause").innerText = JSON.parse(localStorage.getItem('mb_pomodoro_pause'));
+
+document.getElementById("changer").addEventListener("click", function() {
+    TIMERTRAVAIL = JSON.parse(localStorage.getItem('mb_pomodoro_travail'));
+    TIMERPAUSE = JSON.parse(localStorage.getItem('mb_pomodoro_pause'));
+    localStorage.setItem('mb_pomodoro_travail',  JSON.stringify(TIMERTRAVAIL));
+    localStorage.setItem('mb_pomodoro_pause',  JSON.stringify(TIMERPAUSE));
+}); 
 
 /**
  * change l'état du timer (Travail <-> Pause)
