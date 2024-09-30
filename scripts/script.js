@@ -6,6 +6,7 @@ const DEFAULTTIMERPAUSE = 300;
  * change l'état du timer (Travail <-> Pause)
  */
 function changement() {
+    console.log("entre : " + state);
     if (state % 2 == 1) {
         //si travail
         time = TIMERTRAVAIL;
@@ -13,6 +14,7 @@ function changement() {
         document.getElementById("travail").style.color = "Yellow";
         document.getElementById("pause").style.color = "White";
         state++;
+        console.log("oui");
     } else if (state % 2 == 0 && state != (CYCLE * 2)) {
         //si pause
         time = TIMERPAUSE;
@@ -28,6 +30,8 @@ function changement() {
         document.getElementById("pause").style.color = "Yellow";
         state=1;
     }
+    console.log("sortie : " + state);
+    debugger;
 }
 
 /**
@@ -76,6 +80,7 @@ function handleStartStop() {
         bar.animate(1); //reset la barre
     } else {
         //lancer timer
+        state = 2;
         reduce = setInterval(function() {
             reduceTime();
             updateTimer(time, affichage);
@@ -120,6 +125,18 @@ function getSecond(time) {
     return hour*3600 + minute*60 + second;
 }
 
+/**
+ * actualise les données du site et du local storage par rapport aux données entrée dans les paramètres 
+ */
+function changeSetting() {
+    localStorage.setItem('mb_pomodoro_travail', JSON.stringify(getSecond(document.getElementById("temps_travail").value)));
+    localStorage.setItem('mb_pomodoro_pause', JSON.stringify(getSecond(document.getElementById("temps_pause").value)));
+    TIMERTRAVAIL = getSecond(document.getElementById("temps_travail").value.toString());
+    TIMERPAUSE = getSecond(document.getElementById("temps_pause").value.toString());
+    allume = true;
+    handleStartStop();
+}
+
 /*Initialisation V2 */
 
 /*création local storage si pas défini */
@@ -130,17 +147,14 @@ if (localStorage.getItem('mb_pomodoro_pause') == null) {
     localStorage.setItem('mb_pomodoro_pause',  JSON.stringify(DEFAULTTIMERPAUSE));
 }
 
-/*
-localStorage.setItem('mb_pomodoro_travail',  JSON.stringify(DEFAULTTIMERTRAVAIL));
-localStorage.setItem('mb_pomodoro_pause',  JSON.stringify(DEFAULTTIMERPAUSE));
-*/
-
 /*Initalise à partir du localStorage*/
 let TIMERTRAVAIL = JSON.parse(localStorage.getItem('mb_pomodoro_travail'));
 let TIMERPAUSE = JSON.parse(localStorage.getItem('mb_pomodoro_pause'));
 
 document.getElementById("temps_travail").value = getTime(TIMERTRAVAIL);
 document.getElementById("temps_pause").value = getTime(TIMERPAUSE);
+
+document.getElementById("changer").addEventListener("click", changeSetting); 
 
 /*fin initialisation V2 */
 
@@ -161,16 +175,6 @@ let usedTimer; //defini le temps utilisé pour le timer actuel (cercle de progre
 let allume = false; //indique si le timer est allumé ou eteint
 document.getElementById("play").addEventListener("click", handleStartStop);
 let affichage = document.getElementById("timer"); //pour modifier le timer sur le site
-
-document.getElementById("changer").addEventListener("click", function() {
-    localStorage.setItem('mb_pomodoro_travail', JSON.stringify(getSecond(document.getElementById("temps_travail").value)));
-    localStorage.setItem('mb_pomodoro_pause', JSON.stringify(getSecond(document.getElementById("temps_pause").value)));
-    TIMERTRAVAIL = getSecond(document.getElementById("temps_travail").value.toString());
-    TIMERPAUSE = getSecond(document.getElementById("temps_pause").value.toString());
-    allume = true;
-    handleStartStop();
-}); 
-
 let time; //definition de la variable stockant le temps restant
 changement(); //initialisation de l'état
 updateTimer(time, affichage); //mise à jour de l'affichage
